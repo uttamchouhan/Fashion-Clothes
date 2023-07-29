@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <title>Fashion-Dresses</title>
+    <script src="Add-to-Cart.js" async></script>
+    <style>
+        .nav-cart {
+            font-size: 0.85rem;
+            font-weight: 700;
+            position: relative;
+            margin-left: 20px;
+        }
+        
+        .nav-cart i {
+            font-size: 20px;
+        }
+        
+        h6::before {
+            content: attr(data-count);
+            top: -10px;
+            position: absolute;
+            right: auto;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            font-size: 0.85rem;
+            border-radius: 50%;
+            background-color: #cc0c39;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+        }
+        
+        h6.zero::before {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>UC.</h1>
+                    </a>
+                </div>
+                <nav>
+                    <ul id="menuBar">
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#product">Product</a></li>
+                        <li><a href="#review">Review</a></li>
+                        <li><a href="#contact">Contact us</a></li>
+                        <i class="fas fa-times" onclick="closeBar()"></i>
+                        <i class="fa-solid fa-user" onclick="fromOpen()"><span>Login</span></i>
+                        <!--<i class="fa-solid fa-cart-shopping" onclick="cartOpen()"><p id="count"></p></i>-->
+                    </ul>
+
+                    <i class="fas fa-bars" onclick="openBar()"></i>
+                </nav>
+                <div class="nav-cart">
+                    <div class="count">
+                        <h6></h6>
+                    </div>
+                    <i class="fa-solid fa-cart-shopping" onclick="cartOpen()"></i>Cart
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1">
+                    <h1>New Arrival Here and Fashion Clothes!</h1>
+                    <h3 class="btn">Explore me <i class="fa-solid fa-arrow-right"></i></h3>
+                </div>
+                <div class="col-2">
+                    <img src="./img/display.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add-to-cart-section -->
+    <div class="container">
+        <div id="cartopen">
+            <i class="fa-solid fa-xmark" onclick="cartClose()"></i>
+            <div class="box-container">
+                <!-- add-to-cart -->
+                <div class="content-section">
+                    <h2 class="section-header">Cart</h2>
+                    <div class="cart-row">
+                        <span class="cart-item cart-header cart-column">ITEM</span>
+                        <span class="cart-price cart-header cart-column">PRICE</span>
+                        <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+                    </div>
+                    <div class="cart-items">
+                    </div>
+
+                    <div class="cart-total">
+                        <strong class="cart-total-title">Total</strong>
+                        <span class="cart-total-price">0</span>
+                    </div>
+                    <!-- End here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login-Page -->
+    <div class="account-page">
+        <div class="container">
+            <div id="from-page">
+                <div class="box-container3">
+                    <i class="fa-solid fa-xmark" onclick="closeFrom();"></i>
+                    <div class="row-5">
+                        <div class="col-2">
+                            <div class="form-container">
+                                <div class="form-btn">
+                                    <span onclick="login()">Login</span>
+                                    <span onclick="register()">Register</span>
+                                    <hr id="Indicator">
+                                </div>
+                                <form id="LoginForm" class="from">
+                                    <input type="text" placeholder="Username">
+                                    <input type="password" placeholder="Password">
+                                    <button type="submit" class="btn">Login</button>
+                                    <a href="">Forgot Password</a>
+                                </form>
+
+                                <form id="RegForm" class="from">
+                                    <input type="text" placeholder="Username">
+                                    <input type="email" placeholder="Email">
+                                    <input type="password" placeholder="Password">
+                                    <button type="submit" class="btn">Register</button>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product-Section -->
+    <section class="product" id="product">
+        <div class="container">
+            <div class="row-2">
+                <div class="product-1">
+                    <h1 class="sub-title">Latest-Product</h1>
+                    <div class="product-title">
+                        <p class="about-links active-links" onclick="opentab('men')">Men</p>
+                        <p class="about-links" onclick="opentab('women')">Women</p>
+                        <p class="about-links" onclick="opentab('kids')">Kids</p>
+                    </div>
+
+                    <div class="about-contents active-about" id="men">
+                        <ul>
+                            <li>
+                                <div class="row-3">
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product1-a.jpg">
+                                        <h4 class="shop-item-title">Gnviw Men's Muscle V Neck Polo Shirts</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$25.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product1-b.jpg">
+                                        <h4 class="shop-item-title">COOFANCY Men's Cotton Linen Henely Shirt</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$31.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product1-c.jpg">
+                                        <h4 class="shop-item-title">BIRW Mens Shorts Sets 2 Piece Outfits Polo Shirt</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$38.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product1-d.jpg">
+                                        <h4 class="shop-item-title">Morwonveo Men's Fasion Polo Shirts and Pant</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$25.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product1-e.jpg">
+                                        <h4 class="shop-item-title">COOFANDY Men's 2 Pieces Shirt Sets Short Sleeve</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$35.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product1-f.jpg">
+                                        <h4 class="shop-item-title">COOFANDY Men's Casual Linen Button Down Shirt</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$31.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product1-g.jpg">
+                                        <h4 class="shop-item-title">URRU Men's Short Sleeve Casual Polo Shirt</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$41.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product1-h.jpg">
+                                        <h4 class="shop-item-title">Davpanzees Men's Luxury Casual Button Down Short Sleeve Shirt </h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$49.90</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product1-i.jpg">
+                                        <h4 class="shop-item-title">Men Polo Shirts In Design Shape With Short</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$31.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product1-j.jpg">
+                                        <h4 class="shop-item-title">Surenow Men's Hiking Cargo Shorts for Men</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$39.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product1-k.jpg">
+                                        <h4 class="shop-item-title">Men's Hawaiian Shirt and Short 2 Pieces</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$33.98</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product1-l.jpg">
+                                        <h4 class="shop-item-title">Men's Iashion Polo Shirt and Short 1 Pieces</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$24.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="about-contents active-about" id="women">
+                        <ul>
+                            <li>
+                                <div class="row-3">
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product2-a.jpg">
+                                        <h4 class="shop-item-title">EFAN Womens Over Sized Hoodies Sweatshirts</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$35.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product2-b.jpg">
+                                        <h4 class="shop-item-title">Dokotoo Womens Blouses and Tops Short Slevees Chiffenshirts</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$22.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product2-c.jpg">
+                                        <h4 class="shop-item-title">PRETTYGARDEN Womens Loose Solid Off Shoulder</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$37.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product2-d.jpg">
+                                        <h4 class="shop-item-title">Trendy Queen Oversized Sweatshirts for Womens</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$30.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product2-e.jpg">
+                                        <h4 class="shop-item-title">Beaully Womens Flannel Plaid Shacket Long Sleeve</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$29.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product2-f.jpg">
+                                        <h4 class="shop-item-title">Prinstory Summer Tops and Shorts for Women's</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$19.85</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product2-g.jpg">
+                                        <h4 class="shop-item-title">ANRABESS Women's Two Pieces Outfits Sweater Sets Knit Pullover</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$42.11</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product2-h.jpg">
+                                        <h4 class="shop-item-title">Verdusa Women's Casual Tie Back Dolman Sleeve</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$28.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product2-i.jpg">
+                                        <h4 class="shop-item-title">Automet Jumpsuits for women casual summer Rompers Sleeveless</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$34.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product2-j.jpg">
+                                        <h4 class="shop-item-title">ANRABESS Women's Two Pieces Outfits Sweater Short Sets</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$35.90</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product2-k.jpg">
+                                        <h4 class="shop-item-title">Automet Womens Casual Sleeveless Shorts</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$33.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+                                    <div class="col">
+                                        <img class="shop-item-image" src="./img/product2-l.jpg">
+                                        <h4 class="shop-item-title">Miduo Women's V Neck Strappy Tank Tops Loose Casual</h4>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <p class="shop-item-price">$21.99</p>
+                                        <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                                    </div>
+
+
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="about-contents active-about" id="kids">
+                        <div class="row-3">
+
+                            <div class="col">
+                                <img class="shop-item-image" src="./img/product3-a.jpg">
+                                <h4 class="shop-item-title">Hnyenmcko Kids Toddler Baby Girls Clothes</h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="shop-item-price">$16.39</p>
+                                <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                            </div>
+
+                            <div class="col">
+                                <img class="shop-item-image" src="./img/product3-b.jpg">
+                                <h4 class="shop-item-title">Honganda Fashion Kids Toddler Baby Boy and Girls Clothes</h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="shop-item-price">$15.98</p>
+                                <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                            </div>
+
+                            <div class="col">
+                                <img class="shop-item-image" src="./img/product3-c.jpg">
+                                <h4 class="shop-item-title">UniSex Boy and Girls 3D Print Graphic Sweatshirts</h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="shop-item-price">$23.99</p>
+                                <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                            </div>
+
+
+                            <div class="col">
+                                <img class="shop-item-image" src="./img/product3-d.jpg">
+                                <h4 class="shop-item-title">Boys Sweatshirts Elephant Pullover T-shirts and Colored</h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="shop-item-price">$13.98</p>
+                                <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                            </div>
+
+
+                            <div class="col">
+                                <img class="shop-item-image" src="./img/product3-e.jpg">
+                                <h4 class="shop-item-title">CM C&M WORDO Baby Boys Girls Denim Jacket Kids</h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="shop-item-price">$25.98</p>
+                                <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                            </div>
+
+
+                            <div class="col">
+                                <img class="shop-item-image" src="./img/product3-f.jpg">
+                                <h4 class="shop-item-title">Unisex Child SnowLopeli Bib Snow Pant For Girls</h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="shop-item-price">$69.44</p>
+                                <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                            </div>
+
+
+                            <div class="col">
+                                <img class="shop-item-image" src="./img/product3-g.jpg">
+                                <h4 class="shop-item-title">Levi Girls Denim Trucker Jackets For Small Girls</h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="shop-item-price">$29.65</p>
+                                <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                            </div>
+
+
+                            <div class="col">
+                                <img class="shop-item-image" src="./img/product3-h.jpg">
+                                <h4 class="shop-item-title">Calvin Kelin Boy's Short Sleeve Shirts Colored Patterns</h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="shop-item-price">$24.50</p>
+                                <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                            </div>
+
+
+                            <div class="col">
+                                <img class="shop-item-image" src="./img/product3-i.jpg">
+                                <h4 class="shop-item-title">Pokemon Christmas Jumper Pikachu Knitted for Boys and Girls</h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="shop-item-price">$46.99</p>
+                                <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                            </div>
+
+                            <div class="col">
+                                <img class="shop-item-image" src="./img/product3-j.jpg">
+                                <h4 class="shop-item-title">Amazon Aware UniSex kids French Terry Zip-Up Hoodies</h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="shop-item-price">$16.19</p>
+                                <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                            </div>
+
+                            <div class="col">
+                                <img class="shop-item-image" src="./img/product3-k.jpg">
+                                <h4 class="shop-item-title">BareFoot Dreams Cozychic youth Pullover Casual Hoodies</h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="shop-item-price">$58.00</p>
+                                <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                            </div>
+
+                            <div class="col">
+                                <img class="shop-item-image" src="./img/product3-l.jpg">
+                                <h4 class="shop-item-title">Hurly Melky Canvas Shoes for Boys and Girls </h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="shop-item-price">$39.98</p>
+                                <button class="btn btn-2 shop-item-button" type="button">Add to Cart</button>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Review-section -->
+    <div class="container">
+        <div class="review" id="review">
+            <h1>Review Section</h1>
+            <div class="testimonials">
+                <div class="row-4">
+                    <div class="user">
+                        <img src="./img/pic-1.png" alt="">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ipsam corrupti perferendis cum iusto sequi eligendi? Placeat commodi mollitia illo obcaecati ab! Cum temporibus ipsum assumenda delectus suscipit non inventore.</p>
+                        <h3>John Doe</h3>
+                    </div>
+
+                    <div class="user space">
+                        <img src="./img/pic-2.png" alt="">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ipsam corrupti perferendis cum iusto sequi eligendi? Placeat commodi mollitia illo obcaecati ab! Cum temporibus ipsum assumenda delectus suscipit non inventore.</p>
+                        <h3>Barbie Doe</h3>
+                    </div>
+
+                    <div class="user">
+                        <img src="./img/pic-3.png" alt="">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ipsam corrupti perferendis cum iusto sequi eligendi? Placeat commodi mollitia illo obcaecati ab! Cum temporibus ipsum assumenda delectus suscipit non inventore.</p>
+                        <h3>Jack Smith</h3>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact-section -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="subtitle">Contact US</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i> XYZ@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i> 22034-333-3343</p>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet" id="from-box">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Meassage"></textarea>
+                        <button type="submit" class="btn btn-2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer Section -->
+    <footer>
+        <p class="center">&copy;2023 <span>UC.Fashion</span></p>
+    </footer>
+
+    <script>
+        var aboutlinks = document.getElementsByClassName("about-links");
+        var aboutcontents = document.getElementsByClassName("about-contents");
+
+        function opentab(tabname) {
+            for (aboutlink of aboutlinks) {
+                aboutlink.classList.remove("active-links");
+            }
+            for (aboutcontent of aboutcontents) {
+                aboutcontent.classList.remove("active-about");
+            }
+            event.currentTarget.classList.add("active-links");
+            document.getElementById(tabname).classList.add("active-about");
+        }
+    </script>
+
+    <script>
+        var menuBar = document.getElementById("menuBar");
+
+        function openBar() {
+            menuBar.style.right = "0";
+        }
+
+        function closeBar() {
+            menuBar.style.right = "-200px";
+        }
+    </script>
+
+    <script>
+        var cartopen = document.getElementById("cartopen")
+
+        function cartOpen() {
+            cartopen.style.right = "0";
+        }
+
+        function cartClose() {
+            cartopen.style.right = "-390px";
+        }
+    </script>
+
+    <!-- Login-page-slider -->
+    <script>
+        var LoginForm = document.getElementById("LoginForm");
+        var RegForm = document.getElementById("RegForm");
+        var Indicator = document.getElementById("Indicator");
+
+        function register() {
+            RegForm.style.transform = "translateX(0px)";
+            LoginForm.style.transform = "translateX(0px)";
+            Indicator.style.transform = "translateX(100px)";
+        }
+
+        function login() {
+            RegForm.style.transform = "translateX(300px)";
+            LoginForm.style.transform = "translateX(300px)";
+            Indicator.style.transform = "translateX(0px)";
+        }
+    </script>
+    <script>
+        var formPage = document.getElementById("from-page");
+
+        function fromOpen() {
+            formPage.style.display = "block";
+        }
+
+        function closeFrom() {
+            formPage.style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
